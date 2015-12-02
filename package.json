@@ -1,0 +1,23 @@
+{
+  "name": "svn-export",
+  "version": "1.0.0",
+  "description": "exporta os dados do svn log para uma tabela html",
+  "main": "parser.js",
+  "dependencies": {
+    "fs-extra": "^0.26.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/waghcwb/svn-export.git"
+  },
+  "author": "waghcwb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waghcwb/svn-export/issues"
+  },
+  "homepage": "https://github.com/waghcwb/svn-export#readme"
+}
