@@ -48,29 +48,29 @@ function extractData(commit) {
     try {
         // var commitData = JSON.stringify(commit.replace(/\r|\n/g, "#")).match(/##r(\d+)\s+\|\s+(.*?)\s+\|\s+(.*?)\(.*?\).*####(.*?)##/);
 
-		var infos = commit.match(/(r\d*) \| (.*) \| (.*) \| (.*)/g);
-		var descriptions = commit.split('Changed paths:');
+        var infos = commit.match(/(r\d*) \| (.*) \| (.*) \| (.*)/g);
+        var descriptions = commit.split('Changed paths:');
 
-		if(infos) {
-			if(descriptions[1]) {
-				var re = descriptions[1].replace(/[A-Z] (.*)/g, '$1');
-				var file = re.split('\n')[1].trim();
-				var description = re.split('\n')[3].trim();
-					infos = infos[0].split('|');
+        if(infos) {
+            if(descriptions[1]) {
+                var re = descriptions[1].replace(/[A-Z] (.*)/g, '$1');
+                var file = re.split('\n')[1].trim();
+                var description = re.split('\n')[3].trim();
+                    infos = infos[0].split('|');
 
-				var revision = infos[0].trim().split('r')[1];
-				var user = infos[1].trim();
-				var convert = new Date(infos[2].trim());
-				var month = (convert.getMonth() + 1);
-				
-		        return {
-		            commitRevision: revision,
-		            commitUser: user,
-		            commitDate: convert,
-		            commitMessage: description
-		        }
-			}
-		}
+                var revision = infos[0].trim().split('r')[1];
+                var user = infos[1].trim();
+                var convert = new Date(infos[2].trim());
+                var month = (convert.getMonth() + 1);
+                
+                return {
+                    commitRevision: revision,
+                    commitUser: user,
+                    commitDate: convert,
+                    commitMessage: description
+                }
+            }
+        }
 
     } catch (e) {
         console.error(e);
@@ -91,6 +91,7 @@ function getTaskDuration(lastDate, currentDate) {
 
 function getDurationString(duration) {
     return (duration)
-        ? duration.inDays + ' Dia(s), ' + duration.inHours + ' hora(s), ' + duration.inMinutes + ' Minuto(s)'
+        // ? duration.inDays + ' Dia(s), ' + duration.inHours + ' hora(s), ' + duration.inMinutes + ' Minuto(s)'
+        ? duration.inDays + ':' + duration.inHours + ':' + duration.inMinutes
         : 'indefinida';
 }
