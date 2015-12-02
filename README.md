@@ -44,4 +44,4 @@ Create a index.html and put the content of file final.html on the file
 ```
 
 ### Todo:
-- [ ] Generate a complete HTML not just the <tr> to use on a <table>
+- [ ] Generate a complete HTML not just the "tr" to use on a "table"
